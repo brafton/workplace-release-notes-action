@@ -31,7 +31,6 @@ async function main() {
 
   // 2. push facebook post
   var facebook_response = await send_facebook_post(facebookToken, facebookGroupId, subject, release_note.body);
-  console.log(facebook_response);
 }
 
 /**
@@ -43,7 +42,7 @@ async function main() {
  */
 async function send_facebook_post(facebook_releases_token, facebook_group_id, subject, body_md) {
 
-  var payload = `## ${subject} \n ${body_md}`
+  var payload = `# ${subject} \n ${body_md}`
   var options = {
     url: `https://graph.facebook.com/${facebook_group_id}/feed?formatting=MARKDOWN&message=${encodeURIComponent(payload)}`,
     headers: {
