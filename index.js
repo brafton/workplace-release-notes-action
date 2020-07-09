@@ -31,6 +31,7 @@ async function main() {
 
   // 2. push facebook post
   var facebook_response = await send_facebook_post(facebookToken, facebookGroupId, subject, release_note.body);
+  facebook_response.sta
 }
 
 /**
@@ -52,8 +53,10 @@ async function send_facebook_post(facebook_releases_token, facebook_group_id, su
 
   var response = await new Promise(function (resolve, reject) {
     request.post(options, function (error, response, body) {
-      if (error)
+      if (error) {
         reject(error);
+        throw "Error posting facebook post";
+      }
       else
         resolve(response);
     });
@@ -82,8 +85,10 @@ async function get_release_note(github_releases_token, repo_name) {
 
   var response = await new Promise(function (resolve, reject) {
     request.get(options, function (error, response, body) {
-      if (error)
+      if (error){
         reject(error);
+        throw "Error getting releases";
+      }
       else
         resolve(JSON.parse(body));
     });
