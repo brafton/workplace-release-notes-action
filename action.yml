@@ -1,5 +1,5 @@
-name: 'Email Release Notes'
-description: 'Email Release Notes to @Brafton distribution list'
+name: 'Workplace Release Notes'
+description: 'Issue Workplace Release Notes post to a group'
 inputs:
   github_token:
     description: A Github token for the repo, usually `{{ github.token }}`.
@@ -7,14 +7,11 @@ inputs:
   repo_name:
     description: The repo name that we're working on.
     required: true
-  email_recipient:
-    description: The email address to send to
+  facebook_token:
+    description: The facebook posting token
     required: true
-  email_username:
-    description: Username for the dedicated gmail sender user
-    required: true
-  email_password:
-    description: Password for the dedicated gmail sender user
+  facebook_groupid:
+    description: The group to post to 
     required: true
 runs:
   using: 'node12'
