@@ -1,0 +1,21 @@
+name: 'Email Release Notes'
+description: 'Email Release Notes to @Brafton distribution list'
+inputs:
+  github_token:
+    description: A Github token for the repo, usually `{{ github.token }}`.
+    required: true
+  repo_name:
+    description: The repo name that we're working on.
+    required: true
+  email_recipient:
+    description: The email address to send to
+    required: true
+  email_username:
+    description: Username for the dedicated gmail sender user
+    required: true
+  email_password:
+    description: Password for the dedicated gmail sender user
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
