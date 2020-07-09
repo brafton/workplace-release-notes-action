@@ -1,6 +1,6 @@
-# Email Release Notes action
+# Workplace Release Notes action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log. To learn how this action was built, see "[Creating a JavaScript action](https://help.github.com/en/articles/creating-a-javascript-action)" in the GitHub Help documentation.
+To learn how this action was built, see "[Creating a JavaScript action](https://help.github.com/en/articles/creating-a-javascript-action)" in the GitHub Help documentation.
 
 ## Inputs
 
@@ -28,11 +28,10 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 ## Example usage
 
 ```yaml
-uses: brafton/email-release-notes-action@master
+uses: brafton/workplace-release-notes-action@master
 with:
   github_token: ${{ github.token }}
   repo_name: your_repo_name
-  email_recipient: your.desired.sender@someaddress.com
-  email_username: your.name@gmail.com
-  email_password: your_pa$$word
+  facebook_token: ${{ your_token_secret}}
+  facebook_groupid: 12345678
 ```
