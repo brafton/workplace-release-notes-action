@@ -30,7 +30,7 @@ async function main() {
   subject = is_draft == true ? `${prettyName} Staging Release ${release_note.tag_name}` : `${prettyName} Production Release ${release_note.tag_name}`;
 
   // 2. push facebook post
-  var facebook_response = await send_facebook_post(facebookToken, facebookGroupId, subject, release_note.body_html);
+  var facebook_response = await send_facebook_post(facebookToken, facebookGroupId, subject, release_note.body);
   console.log(facebook_response);
 }
 
@@ -77,7 +77,7 @@ async function get_release_note(github_releases_token, repo_name) {
       'Authorization': `Bearer ${github_releases_token}`,
       'User-Agent': `${repo_name}`,
       // this ensure that the body of the response payload is html
-      'Accept': 'application/vnd.github.v3.html+json'
+      //'Accept': 'application/vnd.github.v3.html+json'
     },
   };
 
