@@ -17,7 +17,7 @@ async function main() {
   var release_note;
   var is_draft;
   var subject;
-  var prettyName = to_title_case(repo_name);
+  var prettyName = to_title_case(repoName);
 
   if (!!response == true && Array.isArray(response) == true) {
       release_note = response[0];
@@ -113,7 +113,7 @@ try {
   console.log(`Hello reponame=${repoName} token=${githubToken} facebookToken=${facebookToken} groupid=${facebookGroupId}`);
 
   // call the main function and do the work
-  main();
+  main().catch(core.setFailed(error.message));
 
 
 } catch (error) {
