@@ -113,7 +113,7 @@ try {
   console.log(`Hello reponame=${repoName} token=${githubToken} facebookToken=${facebookToken} groupid=${facebookGroupId}`);
 
   // call the main function and do the work
-  main().catch(core.setFailed(error.message));
+  main().catch(error => core.setFailed(error.message));
 
 
 } catch (error) {
